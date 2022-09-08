@@ -34,15 +34,15 @@ class mat:
         ]
 
 
-def feb(n: int, cbit=60):
+def feb(n: int, maxBit=64):
     n -= 1
-    arr: List[mat] = [None] * cbit
+    arr: List[mat] = [None] * maxBit
     arr[0] = mat()
-    for i in range(1, cbit):
+    for i in range(1, maxBit):
         arr[i] = arr[i - 1] * arr[i - 1]
 
     p: List[int] = [1, 1]
-    for i in range(cbit):
+    for i in range(maxBit):
         if n >> i & 1:
             res = arr[i].dot(p)
             p[0], p[1] = res[0], res[1]
